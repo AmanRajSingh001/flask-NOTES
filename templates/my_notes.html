@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <h1>THIS is MY NOTES PAGE !!!</h1>
+        <form action="/add" method="POST">
+            <input type="text" name="notes_name" placeholder="enter your notes">
+            <input type ="text" name="about_notes" placeholder="enter something about notes">
+            <button type="submit">SUBMIT</button>
+        </form>
+        <ul>
+            {% for note in memos %}
+            <li>
+                {{note.name}}-{{ note.content}}-{{note.important}}
+                <form action="/delete/{{note.id}}" method="POST" style="display: inline;">
+                    <button type="submit">DELETE</button>
+                </form>
+                <form action="/mark_important/{{note.id}}" method="POST" style="display: inline;">
+                        <button type="submit">STAR</button>
+                    </form>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
