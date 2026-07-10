@@ -32,7 +32,7 @@ def star_notes(note_id):
     note_to_mark.important=not note_to_mark.important
     db.session.commit()
     return redirect(url_for('home'))
-if __name__=='__main__':
-    with app.app_context():
+with app.app_context():
         db.create_all()
+if __name__=='__main__':
     app.run(debug=True)
